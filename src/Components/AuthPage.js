@@ -6,7 +6,7 @@ import NavBar from "./NavBar";
 export default function AuthPage() {
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
-  const url="https://book-backend-ihhw.onrender.com";
+  const url="https://book-backened.onrender.com";
   const [form, setForm] = useState({
     name: "",
     email: "",
