@@ -10,7 +10,7 @@ app.use(express.json());
 
 app.use(cors({
   origin: [
-    "http://localhost:3000",
+    port,
     "https://https://book-0a6w.onrender.com/"
   ],
   credentials: true
