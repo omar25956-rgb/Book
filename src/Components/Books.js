@@ -7,7 +7,7 @@ function Books() {
 
   const [books, setBooks] = useState([]);
     const loadBooks = async () => {
-    const res = await axios.get("/api/books");
+    const res = await axios.get("https://book-backend-ihhw.onrender.com/api/books");
     setBooks(res.data);
   };
 
