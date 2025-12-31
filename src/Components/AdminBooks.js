@@ -18,7 +18,7 @@ export default function AdminBooks() {
   }, []);
 
   const loadBooks = async () => {
-    const res = await axios.get("mysql://root:JagwsaXKyCTZJkUBTYRUxkSNrQyelZTv@metro.proxy.rlwy.net:17969/railway/api/books");
+    const res = await axios.get("/api/books");
     setBooks(res.data);
   };
 
@@ -28,7 +28,7 @@ export default function AdminBooks() {
 
   const addBook = async e => {
     e.preventDefault();
-    await axios.post("mysql://root:JagwsaXKyCTZJkUBTYRUxkSNrQyelZTv@metro.proxy.rlwy.net:17969/railway/api/admin/books", form);
+    await axios.post("/api/admin/books", form);
     setForm({ title: "", author: "", price: "", image: "", description: "" });
     loadBooks();
   };
@@ -39,7 +39,7 @@ export default function AdminBooks() {
   };
 
   const updateBook = async () => {
-    await axios.put(`mysql://root:JagwsaXKyCTZJkUBTYRUxkSNrQyelZTv@metro.proxy.rlwy.net:17969/railway/api/admin/books/${editingId}`, form);
+    await axios.put(`/api/admin/books/${editingId}`, form);
     setEditingId(null);
     setForm({ title: "", author: "", price: "", image: "", description: "" });
     loadBooks();
@@ -47,7 +47,7 @@ export default function AdminBooks() {
 
   const deleteBook = async id => {
     if (!window.confirm("Delete this book?")) return;
-    await axios.delete(`mysql://root:JagwsaXKyCTZJkUBTYRUxkSNrQyelZTv@metro.proxy.rlwy.net:17969/railway/api/admin/books/${id}`);
+    await axios.delete(`/api/admin/books/${id}`);
     loadBooks();
   };
 
