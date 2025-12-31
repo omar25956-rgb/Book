@@ -6,6 +6,7 @@ import NavBar from "./NavBar";
 export default function AuthPage() {
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
+  const url="https://book-backend-ihhw.onrender.com";
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -23,8 +24,8 @@ export default function AuthPage() {
 
     try {
       const url = isLogin
-        ? "http://localhost:5000/api/login"
-        : "http://localhost:5000/api/signup";
+        ? "{url}/api/login"
+        : "{url}/api/signup";
 
       const res = await axios.post(url, form);
       setMessage(res.data.message);
