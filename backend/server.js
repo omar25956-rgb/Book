@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 // MySQL connection
-const db ="mysql://root:JagwsaXKyCTZJkUBTYRUxkSNrQyelZTv@metro.proxy.rlwy.net:17969/railway";
+const db ="metro.proxy.rlwy.net";
 
 db.connect(err => {
   if (err) {
