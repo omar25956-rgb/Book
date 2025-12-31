@@ -9,7 +9,14 @@ app.use(cors());
 app.use(express.json());
 
 // MySQL connection
-const db ="metro.proxy.rlwy.net";
+const db = mysql.createConnection({
+  host: "metro.proxy.rlwy.net",
+  user: "root",
+  password: "JagwsaXKyCTZJkUBTYRUxkSNrQyelZTv", // your MySQL password
+  database: "railway",
+  port: 17969
+});
+
 
 db.connect(err => {
   if (err) {
