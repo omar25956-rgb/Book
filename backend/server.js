@@ -1,6 +1,6 @@
 const express = require("express");
 const mysql = require("mysql2");
-const cors = require("cors");
+
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const port=process.env.PORT ||  5000;
@@ -8,13 +8,21 @@ const app = express();
 app.use(express.json());
 
 
+const cors = require("cors");
+
 app.use(cors({
   origin: [
     port,
-    "https://https://book-0a6w.onrender.com/"
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "https://book-0a6w.onrender.com"
   ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
+
+app.use(express.json());
+
 
 // MySQL connection
 
