@@ -9,20 +9,21 @@ app.use(cors());
 app.use(express.json());
 
 // MySQL connection
+
 const db = mysql.createConnection({
   host: "metro.proxy.rlwy.net",
   user: "root",
-  password: "JagwsaXKyCTZJkUBTYRUxkSNrQyelZTv", // your MySQL password
+  password: "JagwsaXKyCTZJkUBTYRUxkSNrQyelZTv",
   database: "railway",
-  port: 17969
+  port: 17969,
+  ssl: { rejectUnauthorized: false } // IMPORTANT for Railway
 });
 
-
-db.connect(err => {
+db.connect((err) => {
   if (err) {
-    console.error("MySQL error:", err);
+    console.error("MySQL connection error:", err.message);
   } else {
-    console.log("MySQL connected");
+    console.log("✅ MySQL connected successfully");
   }
 });
 
