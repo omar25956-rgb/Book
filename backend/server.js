@@ -1,26 +1,45 @@
 const express = require("express");
 const mysql = require("mysql2");
-const cors = require("cors");
+
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const port=process.env.PORT ||  5000;
 const app = express();
-app.use(cors());
 app.use(express.json());
 
+
+const cors = require("cors");
+
+app.use(cors({
+  origin: [
+    port,
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "https://book-0a6w.onrender.com"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
+app.use(express.json());
+
+
 // MySQL connection
+
 const db = mysql.createConnection({
-  host: "localhost",
+  host: "metro.proxy.rlwy.net",
   user: "root",
-  password: "", // your MySQL password
-  database: "online_book_store",
+  password: "JagwsaXKyCTZJkUBTYRUxkSNrQyelZTv",
+  database: "railway",
+  port: 17969,
+  ssl: { rejectUnauthorized: false } // IMPORTANT for Railway
 });
 
-db.connect(err => {
+db.connect((err) => {
   if (err) {
-    console.error("MySQL error:", err);
+    console.error("MySQL connection error:", err.message);
   } else {
-    console.log("MySQL connected");
+    console.log("✅ MySQL connected successfully");
   }
 });
 
