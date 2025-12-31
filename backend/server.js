@@ -9,12 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 // MySQL connection
-const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "", // your MySQL password
-  database: "online_book_store",
-});
+const db ="mysql://root:JagwsaXKyCTZJkUBTYRUxkSNrQyelZTv@metro.proxy.rlwy.net:17969/railway";
 
 db.connect(err => {
   if (err) {
