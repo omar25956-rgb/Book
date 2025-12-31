@@ -7,7 +7,7 @@ function Books() {
 
   const [books, setBooks] = useState([]);
     const loadBooks = async () => {
-    const res = await axios.get("http://localhost:5000/api/books");
+    const res = await axios.get("mysql://root:JagwsaXKyCTZJkUBTYRUxkSNrQyelZTv@metro.proxy.rlwy.net:17969/railway/api/books");
     setBooks(res.data);
   };
 
