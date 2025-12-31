@@ -5,8 +5,16 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const port=process.env.PORT ||  5000;
 const app = express();
-app.use(cors());
 app.use(express.json());
+
+
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://https://book-0a6w.onrender.com/"
+  ],
+  credentials: true
+}));
 
 // MySQL connection
 
